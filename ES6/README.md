@@ -1,7 +1,7 @@
 # ES6
 
 ## ES6 module
-https://developer.
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
 
 Siti utili
 https://javascript.info/
