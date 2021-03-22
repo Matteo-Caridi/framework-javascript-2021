@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add event listner</title>
+    <style>
+        #quadrato {
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0px;
+        }
+
+        #avantiBtn {
+            position: absolute;
+            top: 30px;
+            left: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="quadrato">
+        <p>quadrato</p>
+    </div>
+    <button id="avantiBtn">Avanti</button>
+
+    <script>
+        const quadrato = document.querySelector('#quadrato');
+        const avantiBtn = document.querySelector('#avantiBtn');
+
+        console.log("trovato i protagonisti", quadrato, avantiBtn);
+
+        function vaiAvanti(event) {
+            console.log("type", event.type);
+            console.log("altKey is", event.altKey);
+            console.log("target ", event.target);
+            quadrato.style.left = "100px";
+        }
+
+        avantiBtn.addEventListener('click', vaiAvanti);
+    </script>
+    <script>
+        quadrato.addEventListener('mousemove', (evt) => {
+            evt.target.style.backgroundColor = "black";
+        })
+    </script>
+</body>
+
+</html>
