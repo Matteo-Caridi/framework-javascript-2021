@@ -14,6 +14,18 @@
             position: absolute;
             top: 0;
             left: 0px;
+            text-align: center;
+        }
+
+        #rettangolo {
+            height: 100px;
+            width: 300px;
+            background-color: green;
+            position: absolute;
+            top: 150px;
+            left: 0px;
+            text-align: center;
+
         }
 
         #avantiBtn {
@@ -29,12 +41,15 @@
     <div id="quadrato">
         <p>quadrato</p>
     </div>
+    <div id="rettangolo">
+        <p>rettangolo</p>
+    </div>
     <button id="avantiBtn">Avanti</button>
 
     <script>
         const quadrato = document.querySelector('#quadrato');
         const avantiBtn = document.querySelector('#avantiBtn');
-
+        const rettangolo = document.querySelector('#rettangolo');
         console.log("trovato i protagonisti", quadrato, avantiBtn);
 
         function vaiAvanti(event) {
@@ -47,9 +62,12 @@
         avantiBtn.addEventListener('click', vaiAvanti);
     </script>
     <script>
-        quadrato.addEventListener('mousemove', (evt) => {
-            evt.target.style.backgroundColor = "black";
-        })
+        const cambiaColore = evt => {
+            console.log("target", evt.target.id, evt.clientY, evt.clientX);
+            evt.target.style.backgroundColor = "yellow";
+        }
+        rettangolo.addEventListener('mousemove', cambiaColore);
+        quadrato.addEventListener('mousemove', cambiaColore);
     </script>
 </body>
 
