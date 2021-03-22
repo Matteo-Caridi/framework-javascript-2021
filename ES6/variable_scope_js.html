@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope delle variabili</title>
+</head>
+
+<body>
+    <script>
+
+        //Global scope
+        const fuori = 10;
+
+        function funzioneInterna() {
+            //function scope
+            const dentro = 20;
+            console.log(fuori);
+            function funzioneDentroInterna() {
+                console.log(dentro);
+                console.log(fuori);
+
+                function dentroDentro() {
+                    console.log("stampo da dentro dentro", fuori);
+                    const dentroDentro = 300;
+                }
+                dentroDentro();
+            }
+            funzioneDentroInterna();
+        }
+        funzioneInterna();
+
+    </script>
+</body>
+
+</html>
