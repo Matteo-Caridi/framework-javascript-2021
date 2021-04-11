@@ -1,10 +1,9 @@
 class Counter {
 
-    constructor(iniziale = 0, min = null, max = null, expected = 0) {
+    constructor(iniziale = 0, min = null, max = null) {
         this.value =  parseInt(iniziale);
         this.min = min;
         this.max = max;
-        // this.expected = expected;
     }
 
     increment() {
