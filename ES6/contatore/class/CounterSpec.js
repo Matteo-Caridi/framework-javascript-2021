@@ -82,51 +82,31 @@ console.log("9c - parametri passati come stringhe limite max e min decrement", c
 
 try {
     contatore = new Counter(10, 11, 12)
-    if (contatore.value<11) {
-        throw new console.log("FAIL 10a Error - mi aspettavo un eccezione initial è minore di min", false)
-    }else{
-        console.log(contatore.value);
-    }
-
+    console.log("FAIL 10b Error - mi aspettavo un eccezione 'initial è minore di min' ",false)
 } catch (error) {
-    console.log("PASS 10a Error - trovato un errore atteso 'initial è minore di min' ", error.message === 'initial è minore di min')
-    //console.error(error)
+    console.log("PASS 10a Error - trovato un errore atteso 'initial è minore di min' ", error.message === 'initial è minore di min', true)
 }
 
 try {
     contatore = new Counter("10", "11", "12")
-    if (contatore.value<11) {
-        throw new console.log("FAIL 10b Error - mi aspettavo un eccezione 'initial è minore di min' ", false)
-    }else{
-        console.log(contatore.value);
-    }
+    console.log("FAIL 10b Error - mi aspettavo un eccezione 'initial è minore di min' ",false)
 } catch (error) {
-    console.log("PASS 10b Error - trovato un errore atteso 'initial è minore di min' ", error.message === 'initial è minore di min')
-    //console.error(error)
+    console.log("PASS 10a Error - trovato un errore atteso, 'initial è minore di min' ", error.message === 'initial è minore di min',true)
 }
 
 
 try {
     contatore = new Counter(13, 11, 12)
-    if (contatore.value>12) {
-        throw new console.log("FAIL 10c Error - mi aspettavo un eccezione initial è maggiore di max", false)
-    }else{
-        console.log(console.value);
-    }
+    console.log("FAIL 10c Error - mi aspettavo un eccezione initial è maggiore di max",false)
 } catch (error) {
-    console.log("PASS 10c Error - trovato un errore era atteso 'errore initial maggiore di max'", error.message === 'initial è maggiore di max',)
-    //console.error(error)
+    console.log("PASS 10c Error - trovato un errore, atteso 'errore initial maggiore di max'", error.message === 'initial è maggiore di max', true)
 }
+
 
 
 try {
     contatore = new Counter("13", "11", "12")
-    if (contatore.value>12) {
-        throw new console.log("FAIL 10d Error - mi aspettavo un eccezione initial è maggiore di max", false)
-    }else{
-        console.log(contatore.value);
-    }
+    console.log("FAIL 10c Error - mi aspettavo un eccezione initial è maggiore di max",false)
 } catch (error) {
-    console.log("PASS 10d Error - trovato un errore era atteso 'errore initial maggiore di max'", error.message === 'initial è maggiore di max',)
-    //console.error(error)
+    console.log("PASS 10c Error - trovato un errore, atteso 'errore initial maggiore di max'", error.message === 'initial è maggiore di max', true)
 }
