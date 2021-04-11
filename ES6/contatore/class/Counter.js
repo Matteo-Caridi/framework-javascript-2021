@@ -1,13 +1,14 @@
 class Counter {
 
     constructor(iniziale = 0, min = null, max = null, expected = 0) {
-        this.value = iniziale;
+        this.value =  parseInt(iniziale);
         this.min = min;
         this.max = max;
-        this.expected = expected;
+        // this.expected = expected;
     }
 
     increment() {
+
         if (this.max !== null) {
             if (this.value < this.max) {
                 this.value++;
@@ -19,9 +20,7 @@ class Counter {
 
     decrement() {
         if (this.min !== null) {
-            if (this.value !== this.expected) {
-                this.value--;
-            } else if (this.value > this.min) {
+            if (this.value > this.min) {
                 this.value--;
             }
         } else {

@@ -12,7 +12,7 @@ contatore = new Counter(10)
 contatore.increment()
 contatore.increment()
 
-console.log("02 - partendo da 10 più due incrementi il valore dev'essere 12", contatore.value == 12);
+console.log("02 - partendo da 10 più due incrementi il valore dev'essere 12", contatore.value == 12); //true
 
 /**
  * 1 arg partenza
@@ -34,10 +34,11 @@ contatore.increment() // 15
 
 console.log("04 - il valore massimo del contatore dev'essere 15", contatore.value == 15)
 
-contatore = new Counter(10, 10, 15)
+contatore = new Counter(10, 10, 15,10)
 contatore.decrement() //ci aspettiamo che rimanga 10
 contatore.decrement() //ci aspettiamo che rimanga 10
 contatore.decrement() //ci aspettiamo che rimanga 10
+console.log(contatore.value)
 console.log("05 - il valore minimo del contatore dev'essere 10", contatore.value == 10)
 
 
@@ -57,25 +58,61 @@ contatore.increment();
 console.log("07 - initial passato come stringa \"0\" increment", contatore.value == 1, "actual ", contatore.value)
 
 
-contatore = new Counter(0, "10", "20")
+contatore = new Counter("9","-10","10")
+
+console.log("quanto vale?", contatore.value);
+
 contatore.increment();
-contatore.increment();
-contatore.increment();
-contatore.increment();
-contatore.increment();
-contatore.increment();
-contatore.increment();
-contatore.increment();
-contatore.increment();
-contatore.increment();
+
 console.log("08a - parametri passati come stringhe limite max e min increment", contatore.value == 10, "actual ", contatore.value);
 
-//non l'ho appena fatto??
-// console.log("08b - parametri passati come stringhe limite max e min increment", contatore.value == 10, "actual ", contatore.value);
+console.log("08b - parametri passati come stringhe limite max e min increment", contatore.value == 10, "actual ", contatore.value);
 
-
-contatore = new Counter("9","-10","10", "9")
 contatore.decrement();
-console.log(contatore.value)
-console.log(contatore.expected)
+
 console.log("08c - parametri passati come stringhe limite max e min decrement", contatore.value == 9, "actual ", contatore.value);
+
+
+// TEST 9
+contatore = new Counter("-8","-10","10")
+
+contatore.decrement();
+console.log("9a - parametri passati come stringhe limite max e min decrement",contatore.value == -9,"actual ",contatore.value)
+contatore.decrement();
+console.log("9b - parametri passati come stringhe limite max e min decrement",contatore.value == -10,"actual ",contatore.value)
+console.log("9c - parametri passati come stringhe limite max e min decrement",contatore.value == -10,"actual ",contatore.value)
+
+
+try {
+    contatore = new Counter(10,11,12)
+    console.log("FAIL 10a Error - mi aspettavo un eccezione initial è minore di min",false)
+} catch (error) {
+    console.log("PASS 10a Error - trovato un errore atteso 'initial è minore di min' ",error.message === 'initial è minore di min')
+    //console.error(error)
+}
+
+try {
+    contatore = new Counter("10","11","12")
+    console.log("FAIL 10b Error - mi aspettavo un eccezione 'initial è minore di min' ",false)
+} catch (error) {
+    console.log("PASS 10b Error - trovato un errore atteso 'initial è minore di min' ",error.message === 'initial è minore di min')
+    //console.error(error)
+}
+
+
+try {
+    contatore = new Counter(13,11,12)
+    console.log("FAIL 10c Error - mi aspettavo un eccezione initial è maggiore di max",false)
+} catch (error) {
+    console.log("PASS 10c Error - trovato un errore era atteso 'errore initial maggiore di max'",error.message === 'initial è maggiore di max',)
+    //console.error(error)
+}
+
+
+try {
+    contatore = new Counter("13","11","12")
+    console.log("FAIL 10d Error - mi aspettavo un eccezione initial è maggiore di max",false)
+} catch (error) {
+    console.log("PASS 10d Error - trovato un errore era atteso 'errore initial maggiore di max'",error.message === 'initial è maggiore di max',)
+    //console.error(error)
+}
