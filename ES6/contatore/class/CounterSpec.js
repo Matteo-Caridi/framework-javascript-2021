@@ -84,14 +84,14 @@ try {
     contatore = new Counter(10, 11, 12)
     console.log("FAIL 10b Error - mi aspettavo un eccezione 'initial è minore di min' ",false)
 } catch (error) {
-    console.log("PASS 10a Error - trovato un errore atteso 'initial è minore di min' ", error.message === 'initial è minore di min', true)
+    console.log("PASS 10a Error - trovato un errore atteso 'initial è minore di min' ", error.message === 'initial è minore di min')
 }
 
 try {
     contatore = new Counter("10", "11", "12")
     console.log("FAIL 10b Error - mi aspettavo un eccezione 'initial è minore di min' ",false)
 } catch (error) {
-    console.log("PASS 10a Error - trovato un errore atteso, 'initial è minore di min' ", error.message === 'initial è minore di min',true)
+    console.log("PASS 10a Error - trovato un errore atteso, 'initial è minore di min' ", error.message === 'initial è minore di min')
 }
 
 
@@ -99,7 +99,7 @@ try {
     contatore = new Counter(13, 11, 12)
     console.log("FAIL 10c Error - mi aspettavo un eccezione initial è maggiore di max",false)
 } catch (error) {
-    console.log("PASS 10c Error - trovato un errore, atteso 'errore initial maggiore di max'", error.message === 'initial è maggiore di max', true)
+    console.log("PASS 10c Error - trovato un errore, atteso 'errore initial maggiore di max'", error.message === 'initial è maggiore di max')
 }
 
 
@@ -108,5 +108,5 @@ try {
     contatore = new Counter("13", "11", "12")
     console.log("FAIL 10c Error - mi aspettavo un eccezione initial è maggiore di max",false)
 } catch (error) {
-    console.log("PASS 10c Error - trovato un errore, atteso 'errore initial maggiore di max'", error.message === 'initial è maggiore di max', true)
+    console.log("PASS 10c Error - trovato un errore, atteso 'errore initial maggiore di max'", error.message === 'initial è maggiore di max')
 }
